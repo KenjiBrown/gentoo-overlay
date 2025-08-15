@@ -91,18 +91,21 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ppc64 ~riscv ~x86 ~amd64-linux"
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
 IUSE="accessibility base bluetooth +branding coinmp +cups custom-cflags +dbus debug eds
-googledrive gstreamer +gtk3 gtk4 kde ldap +mariadb odk pdfimport postgres qt6 test valgrind vulkan wayland
+googledrive gstreamer +gtk3 gtk4 kde ldap +mariadb odk pdfimport postgres qt6 test valgrind vulkan gtk_backend_wayland +gtk_backend_X
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	base? ( java )
 	bluetooth? ( dbus )
+	gtk3? ( gtk_backend_X )
+	gtk4? ( gtk_backend_X )
 	kde? ( qt6 )
 	libreoffice_extensions_nlpsolver? ( java )
 	libreoffice_extensions_scripting-beanshell? ( java )
 	libreoffice_extensions_scripting-javascript? ( java )
 	libreoffice_extensions_wiki-publisher? ( java )
-	wayland? ( || ( gtk3 gtk4 ) )
+	gtk_backend_wayland? ( || ( gtk3 gtk4 ) )
+	gtk_backend_X? ( || ( gtk3 gtk4 ) )
 "
 
 RESTRICT="!test? ( test )"
@@ -199,8 +202,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		dev-libs/glib:2
 		gnome-base/dconf
 		media-libs/mesa[egl(+)]
-		wayland? ( x11-libs/gtk+:3[X,wayland] )
-		!wayland? ( x11-libs/gtk+:3[X] )
+		gtk_backend_wayland? ( x11-libs/gtk+:3[wayland] )
+		gtk_backend_X? ( x11-libs/gtk+:3[X] )
 		x11-libs/pango
 	)
 	gtk4? (
@@ -208,8 +211,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		dev-libs/glib:2
 		gnome-base/dconf
 		media-libs/mesa[egl(+)]
-		wayland? ( gui-libs/gtk:4[X,wayland] )
-		!wayland? ( gui-libs/gtk:4[X] )
+		gtk_backend_wayland? ( gui-libs/gtk:4[wayland] )
+		gtk_backend_X? ( gui-libs/gtk:4[X] )
 		x11-libs/pango
 	)
 	kde? (
@@ -623,8 +626,8 @@ src_configure() {
 	tc-is-lto && myeconfargs+=( --enable-lto )
 
 	# defang automagic dependencies
-	#use X || append-flags -DGENTOO_GTK_HIDE_X11
-	use wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
+	use gtk_backend_X || append-flags -DGENTOO_GTK_HIDE_X11
+	use gtk_backend_wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
 
 	MARIADBCONFIG="$(type -p $(usex mariadb mariadb mysql)_config)" \
 	econf "${myeconfargs[@]}"
