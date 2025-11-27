@@ -1,0 +1,12 @@
+diff '--color=auto' -uri dbmail-3.5.5.orig/src/dm_imapsession.c dbmail-3.5.5/src/dm_imapsession.c
+--- dbmail-3.5.5.orig/src/dm_imapsession.c	2025-10-02 05:53:06.000000000 -0600
++++ dbmail-3.5.5/src/dm_imapsession.c	2025-11-26 23:42:31.000000000 -0600
+@@ -2060,7 +2060,7 @@
+ 			uint64_t len;
+ 			char *lnul, *rnul, *tmp;
+ 
+-			tmp = (char *) g_base64_decode(s, &len);
++			tmp = (char *) dm_base64_decode(s, &len);
+ 			if (! tmp) {
+ 				return -1;
+ 			}
