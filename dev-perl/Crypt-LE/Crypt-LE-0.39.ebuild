@@ -14,7 +14,7 @@ DESCRIPTION="Let's Encrypt API interfacing module and client."
 
 LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~x86 "
 IUSE=""
 
 DEPEND=">=dev-perl/Crypt-OpenSSL-Bignum-0.90.0

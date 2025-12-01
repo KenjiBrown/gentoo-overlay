@@ -14,7 +14,7 @@ DESCRIPTION="a simple API to convert seconds to other date values"
 
 LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="~amd64 ~x86 "
 IUSE=""
 
 DEPEND="virtual/perl-Scalar-List-Utils
