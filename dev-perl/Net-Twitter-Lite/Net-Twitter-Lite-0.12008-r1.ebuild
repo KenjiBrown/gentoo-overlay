@@ -32,5 +32,5 @@ DEPEND="dev-perl/IO
 	dev-lang/perl"
 
 BDEPEND="
-	>=dev-perl/Mddodule-Build-Tiny-0.39.0
+	>=dev-perl/Module-Build-Tiny-0.39.0
 "
