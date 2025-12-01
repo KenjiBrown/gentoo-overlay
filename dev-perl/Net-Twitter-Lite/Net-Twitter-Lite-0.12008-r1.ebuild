@@ -25,9 +25,12 @@ DEPEND="dev-perl/IO
 	>=dev-perl/Net-OAuth-0.280.0
 	>=dev-perl/URI-5.110.0
 	>=dev-perl/libwww-perl-6.600.0
-	>=dev-perl/Module-Build-Tiny-0.39.0
 	dev-perl/LWP-Protocol-https
 	>=dev-perl/Net-HTTP-6.220.0
 	dev-perl/Data-Dumper
 	dev-perl/HTTP-Message
 	dev-lang/perl"
+
+BDEPEND="
+	>=dev-perl/Mddodule-Build-Tiny-0.39.0
+"
