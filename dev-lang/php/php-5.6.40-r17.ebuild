@@ -48,6 +48,7 @@ IUSE="${IUSE} acl bcmath berkdb bzip2 calendar cdb cjk
 # the ones that can be detected to avoid a repeat of bug #564824.
 COMMON_DEPEND="
 	>=app-eselect/eselect-php-0.9.1[apache2?,fpm?]
+	dev-libs/libltdl
 	>=dev-libs/libpcre-8.32[unicode]
 	fpm? ( acl? ( sys-apps/acl ) )
 	apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=] )
