@@ -1,11 +1,11 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2026 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=8
 
 DESCRIPTION="SDK for the SILC protocol"
-HOMEPAGE="http://silcnet.org/"
+HOMEPAGE="https://silc.github.io/dev.html"
 #SRC_URI="http://silcnet.org/download/toolkit/sources/${P}.tar.bz2"
 SRC_URI="mirror://sourceforge/silc/${P}.tar.gz"
 
