@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2026 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-im/silc-client/Attic/silc-client-1.1.8.ebuild,v 1.9 2012/05/04 06:22:11 jdhore Exp $
 
@@ -7,7 +7,7 @@ EAPI=8
 inherit multilib
 
 DESCRIPTION="IRSSI-based text client for Secure Internet Live Conferencing"
-HOMEPAGE="http://silcnet.org/"
+HOMEPAGE="https://silc.github.io/client.html"
 #SRC_URI="http://www.silcnet.org/download/client/sources/${P}.tar.bz2"
 SRC_URI="mirror://sourceforge/silc/${P}.tar.gz"
 
