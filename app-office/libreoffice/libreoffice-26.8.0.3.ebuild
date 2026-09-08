@@ -572,11 +572,14 @@ src_configure() {
 		$(use_with googledrive gdrive-client-id ${google_default_client_id})
 		$(use_with googledrive gdrive-client-secret ${google_default_client_secret})
 		$(use_with java)
-		$(use_with java system-java-websocket)
-		$(use_with java java-websocket-jar="${EPREFIX}/usr/share/java-websocket/lib/java-websocket.jar")
 		$(use_with odk doxygen)
 		$(use_with valgrind)
 	)
+
+	if use java ; then
+		myeconfargs+=( --with-system-java-websocket )
+		myeconfargs+=( --with-java-websocket-jar=/usr/share/java-websocket/lib/java-websocket.jar )
+	fi
 
 	if use eds || use gtk3 || use gtk4 ; then
 		myeconfargs+=( --enable-dconf --enable-gio )
