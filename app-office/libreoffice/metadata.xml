@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>lordvan@gentoo.org</email>
-    <name>Thomas Raschbacher</name>
+    <email>sandino@sandino.net</email>
+    <name>Sandino Araico Sánchez</name>
   </maintainer>
   <longdescription>LibreOffice is the successor of OpenOffice.org. 
 This ebuild allows you to compile it yourself. Unfortunately this 
@@ -20,5 +20,6 @@ version</longdescription>
     <flag name="odk">Build the Office Development Kit</flag>
     <flag name="pdfimport">Enable PDF import via the Poppler library</flag>
     <flag name="vulkan">Enable Vulkan usage via the skia library (clang recommended)</flag>
+    <flag name="wayland">Enable wayland support</flag>
   </use>
 </pkgmetadata>
