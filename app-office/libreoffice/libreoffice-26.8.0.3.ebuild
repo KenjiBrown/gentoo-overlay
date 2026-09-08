@@ -142,6 +142,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/librevenge
 	dev-libs/libxml2:=
 	dev-libs/libxslt
+	dev-libs/md4c
 	dev-libs/nspr
 	dev-libs/nss
 	>=dev-libs/redland-1.0.16
@@ -500,6 +501,7 @@ src_configure() {
 		--with-system-headers
 		--with-system-jars
 		--with-system-libs
+		--with-system-md4c=yes
 		--enable-build-opensymbol
 		--enable-cairo-canvas
 		--enable-largefile
