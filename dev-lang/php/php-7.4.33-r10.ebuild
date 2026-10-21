@@ -5,7 +5,7 @@ EAPI=8
 
 WANT_AUTOMAKE="none"
 
-inherit flag-o-matic systemd autotools
+inherit flag-o-matic systemd autotools multilib
 
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
@@ -149,6 +149,9 @@ PATCHES=(
 	"${FILESDIR}"/php-7.4.33-CVE-2023-0567.patch
 	"${FILESDIR}"/php-7.4.33-CVE-2023-0568.patch
 	"${FILESDIR}"/php-7.4.33-CVE-2023-0662.patch
+	"${FILESDIR}"/php_libxml_output_buffer_create_filename.patch
+	"${FILESDIR}"/php_libxml2_structured_error.patch
+	"${FILESDIR}"/php-7.4-CVE-2026-109618-109619.patch
 )
 
 php_install_ini() {
