@@ -48,6 +48,7 @@ IUSE="${IUSE} acl bcmath berkdb bzip2 calendar cdb cjk
 # the ones that can be detected to avoid a repeat of bug #564824.
 COMMON_DEPEND="
 	>=app-eselect/eselect-php-0.9.1[apache2?,fpm?]
+	dev-libs/libltdl
 	>=dev-libs/libpcre-8.32[unicode]
 	fpm? ( acl? ( sys-apps/acl ) )
 	apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=] )
@@ -142,7 +143,7 @@ BDEPEND="${COMMON_DEPEND}
 	sys-devel/flex
 	>=sys-devel/m4-1.4.3
 	>=dev-build/libtool-1.5.18
-	<sys-devel/gcc-11.0"
+	<sys-devel/gcc-14.0"
 
 # Without USE=readline or libedit, the interactive "php -a" CLI will hang.
 REQUIRED_USE="
@@ -242,6 +243,9 @@ src_prepare() {
 	eapply "${FILESDIR}/php-5.6.40-intl-bool.patch"
 	eapply "${FILESDIR}/php-5.6.40-icu.patch"
 	eapply "${FILESDIR}/php-5.6.40-tidy.patch"
+	eapply "${FILESDIR}/php_libxml_output_buffer_create_filename.patch"
+	eapply "${FILESDIR}/php_libxml2_structured_error.patch"
+	eapply "${FILESDIR}/PHP-5.6.40-Avoid-state-corruption-via-bailout.patch"
 
 	# Copy test binaries from patches
 	local ext_src
