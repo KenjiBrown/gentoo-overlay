@@ -1,12 +1,12 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit acct-user
 
 DESCRIPTION="user for dbmail daemons"
-ACCT_USER_ID=277
+ACCT_USER_ID=-1
 ACCT_USER_HOME="/var/lib/dbmail"
 ACCT_USER_GROUPS=( dbmail mail )
 
